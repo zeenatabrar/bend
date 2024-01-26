@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
-const socketio = require('socket.io');
+// const socketio = require('socket.io');
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
@@ -326,19 +326,19 @@ app.use((err, req, res, next) => {
 
 
 // Websockets
-io.on('connection', (socket) => {
-    console.log('User connected');
+// io.on('connection', (socket) => {
+//     console.log('User connected');
   
-    // Listen for chat messages
-    socket.on('chatMessage', (message) => {
-      io.emit('message', message); // Broadcast the message to all connected clients
-    });
+//     // Listen for chat messages
+//     socket.on('chatMessage', (message) => {
+//       io.emit('message', message); // Broadcast the message to all connected clients
+//     });
   
-    // Handle disconnection
-    socket.on('disconnect', () => {
-      console.log('User disconnected');
-    });
-  });
+//     // Handle disconnection
+//     socket.on('disconnect', () => {
+//       console.log('User disconnected');
+//     });
+//   });
   
 
 const PORT = process.env.PORT || 5000;
